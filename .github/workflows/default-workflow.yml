@@ -7,3 +7,6 @@ defaults:
 jobs:
   example:
     name: ltk-gem-example-job
+    steps:
+      - id: one
+        run: init.sh
