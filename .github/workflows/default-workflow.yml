@@ -25,5 +25,7 @@ jobs:
         run: rake test
       - name: build
         run: rake build
+      - name: print token
+        run: 'echo ~/.gem/credentials'
       - name: push package
         run: gem push --key github --host https://rubygems.pkg.github.com/luisfelipemourapereira pkg/ltk-gem-0.0.1.gem
