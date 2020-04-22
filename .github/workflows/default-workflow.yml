@@ -7,6 +7,7 @@ defaults:
 jobs:
   example:
     name: ltk-gem-example-job
+    runs-on: centos-latest
     steps:
       - id: one
         run: init.sh
