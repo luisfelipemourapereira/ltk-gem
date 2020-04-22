@@ -13,6 +13,8 @@ jobs:
         run: 'mkdir -p ~/.gem'
       - name: credentials
         run: 'echo ":github: Bearer 0299ab63d0f09dc497c951097793f97e5e30fcdc" >> ~/.gem/credentials'
+      - name: correct_permissions
+        run: 'chmod 600 ~/.gem/credentials'
       - name: install_bundler
         run: gem install bundler:1.17.2
       - name: install_bundle
