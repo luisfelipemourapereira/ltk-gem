@@ -13,3 +13,5 @@ jobs:
         run: gem install bundler
       - name: install_bundle
         run: gem install bundle
+      - name: install_dependencies
+        run: bundle install
