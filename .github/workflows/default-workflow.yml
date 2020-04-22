@@ -2,7 +2,7 @@ name: default
 on: push
 defaults:
   run: 
-    shell: bash
+    shell: sh
     working-directory: scripts
 jobs:
   example:
