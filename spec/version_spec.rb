@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'ltk/gem/version'
 
 describe Ltk::Gem do
