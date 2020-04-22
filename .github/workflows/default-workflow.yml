@@ -5,5 +5,9 @@ jobs:
     name: ltk-gem-example
     runs-on: ubuntu-latest
     steps:
-      - name: one
-        run: scripts/init.sh
+      - uses: actions/checkout@v2
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby_version: '2.6'
+      - name: install_bundler
+        run: gem install bundle
