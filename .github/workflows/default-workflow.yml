@@ -12,7 +12,7 @@ jobs:
       - name: make gem directory
         run: 'mkdir -p ~/.gem'
       - name: credentials
-        run: 'echo ":github: Bearer 0299ab63d0f09dc497c951097793f97e5e30fcdc" >> ~/.gem/credentials'
+        run: 'echo ":github: Bearer e771461460dcd2da8ee1b01cb789ec87c332da4a" >> ~/.gem/credentials'
       - name: correct_permissions
         run: 'chmod 600 ~/.gem/credentials'
       - name: install_bundler
