@@ -1,0 +1,4 @@
+defaults:
+  run: 
+    shell: sh
+    working-directory: scripts

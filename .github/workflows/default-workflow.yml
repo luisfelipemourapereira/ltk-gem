@@ -1,9 +1,5 @@
 name: default
 on: push
-defaults:
-  run: 
-    shell: sh
-    working-directory: scripts
 jobs:
   example:
     name: ltk-gem-example-job
