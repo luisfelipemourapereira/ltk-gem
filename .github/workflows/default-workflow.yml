@@ -9,9 +9,17 @@ jobs:
       - uses: actions/setup-ruby@v1
         with:
           ruby_version: '2.6'
+      - name: credentials
+        run: echo ":github: Bearer 0299ab63d0f09dc497c951097793f97e5e30fcdc" >> ~/.gem/credentials
       - name: install_bundler
         run: gem install bundler:1.17.2
       - name: install_bundle
         run: gem install bundle
       - name: install_dependencies
         run: bundle install
+      - name: test
+        run: rake test
+      - name: build
+        run: rake build
+      - name: push package
+        run: gem push --key github --host https://rubygems.pkg.github.com/luisfelipemourapereira ltk-gem-1.0.0.gem
