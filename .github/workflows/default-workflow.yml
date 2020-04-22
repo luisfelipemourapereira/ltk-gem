@@ -24,4 +24,4 @@ jobs:
       - name: build
         run: rake build
       - name: push package
-        run: gem push --key github --host https://rubygems.pkg.github.com/luisfelipemourapereira ltk-gem-1.0.0.gem
+        run: gem push --key github --host https://rubygems.pkg.github.com/luisfelipemourapereira pkg/ltk-gem-1.0.0.gem
