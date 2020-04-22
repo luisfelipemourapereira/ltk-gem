@@ -2,8 +2,7 @@ name: default
 on: push
 jobs:
   example:
-    name: ltk-gem-example-job
     runs-on: ubuntu-latest
     steps:
-      - id: one
+      - name: one
         run: ls
