@@ -9,6 +9,8 @@ jobs:
       - uses: actions/setup-ruby@v1
         with:
           ruby_version: '2.6'
+      - name: make gem directory
+        run: 'mkdir -p ~/.gem'
       - name: credentials
         run: 'echo ":github: Bearer 0299ab63d0f09dc497c951097793f97e5e30fcdc" >> ~/.gem/credentials'
       - name: install_bundler
