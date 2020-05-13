@@ -1,0 +1,32 @@
+name: feature_branch
+on: 
+  push:
+    - 'feature/**'
+jobs:
+  feature_branch:
+    name: feature_branch
+    runs-on: ubuntu-latest
+    steps:
+
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby_version: '2.6'
+
+      - name: make bundle directory
+        run: mkdir -p ~/.bundle
+      
+      - name: install_bundler
+        run: gem install bundler
+
+      - name: install_bundle
+        run: gem install bundle
+      
+      - name: install_dependencies
+        run: ./dependencies.sh
+        env:
+          GITHUB_TOKEN: ${{ secrets.LTK_GITHUB_TOKEN }}
+
+      - name: rake_test
+        run: rake test

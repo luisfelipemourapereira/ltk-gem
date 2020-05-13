@@ -1,0 +1,48 @@
+name: publish_package
+on: 
+  push:
+    branches:
+      - master
+jobs:
+  publish_package:
+    name: publish_package
+    runs-on: ubuntu-latest
+    steps:
+
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby_version: '2.6'
+
+      - name: make bundle directory
+        run: mkdir -p ~/.bundle
+      
+      - name: install_bundler
+        run: gem install bundler
+
+      - name: install_bundle
+        run: gem install bundle
+      
+      - name: install_dependencies
+        run: ./dependencies.sh
+        env:
+          GITHUB_TOKEN: ${{ secrets.LTK_GITHUB_TOKEN }}
+
+      - name: rake_test
+        run: rake test
+
+      - name: rake_build
+        run: rake build
+
+      - name: make gem directory
+        run: 'mkdir -p ~/.gem'
+
+      - name: credentials
+        run: 'echo ":github: Bearer ${{ secrets.LTK_GITHUB_TOKEN }}" >> ~/.gem/credentials'
+
+      - name: correct_permissions
+        run: 'chmod 600 ~/.gem/credentials'
+
+      - name: push package
+        run: gem push --key github --host https://rubygems.pkg.github.com/luisfelipemourapereira pkg/ltk-gem-*.gem
